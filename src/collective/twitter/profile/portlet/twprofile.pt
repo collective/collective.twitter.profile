@@ -22,14 +22,6 @@
                 </div>
                 <div class="tweet-content">
                     <div class="tweet-row">
-                        <span class="tweet-timestamp"
-                            tal:content="python:toLocalizedTime(view.getDate(result), long_format=1)"
-                            tal:condition="not:view/data/pretty_date"></span>
-                        <span class="tweet-timestamp"
-                            tal:content="python:view.getDate(result)"
-                            tal:condition="view/data/pretty_date"></span>
-                    </div>
-                    <div class="tweet-row">
                         <span class="tweet-user-name">
                             <a class="tweet-screen-name"
                             href="#"
@@ -43,6 +35,14 @@
                         <div class="tweet-text">
                             <span tal:replace="structure python:view.getTweet(result)"/>
                         </div>
+                    </div>
+                    <div class="tweet-row">
+                        <span class="tweet-timestamp"
+                            tal:content="python:toLocalizedTime(view.getDate(result), long_format=1)"
+                            tal:condition="not:view/data/pretty_date"></span>
+                        <span class="tweet-timestamp"
+                            tal:content="python:view.getDate(result)"
+                            tal:condition="view/data/pretty_date"></span>
                     </div>
                 </div>
             </div>
