@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<portlets
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="collective.twitter.profile">
+
+ <portlet title="Twitter profile Portlet"
+    addview="collective.twitter.profile.TwitterProfilePortlet"
+    description="A portlet that will show a profile feed from Twitter"
+    i18n:attributes="title; description">
+  <for interface="plone.app.portlets.interfaces.IColumn" />
+  <for interface="plone.app.portlets.interfaces.IDashboard" />
+ </portlet>
+
+ <!--
+ <assignment
+    manager="plone.leftcolumn"
+    category="context"
+    key="/"
+    type="collective.twitter.profile.TwitterProfilePortlet"
+    name="twitter-profile"
+        /> -->
+        
+</portlets>

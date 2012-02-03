@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!-- Remove the package-specific browser layer-->
+<layers>
+    <layer name="collective.twitter.profile.layer"
+            interface="collective.twitter.profile.interfaces.ITwitterProfileLayer"
+            remove="True"/>
+</layers>

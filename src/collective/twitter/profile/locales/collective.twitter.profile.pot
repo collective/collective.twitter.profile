@@ -1,0 +1,80 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2012-02-03 22:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.twitter.profile\n"
+
+#: collective/twitter/profile/profiles/default/portlets.xml
+msgid "A portlet that will show a profile feed from Twitter"
+msgstr ""
+
+#: collective/twitter/profile/portlet/twprofile.py:61
+msgid "Header"
+msgstr ""
+
+#: collective/twitter/profile/portlet/twprofile.py:78
+msgid "Maximum results"
+msgstr ""
+
+#: collective/twitter/profile/portlet/twprofile.py:83
+msgid "Pretty dates"
+msgstr ""
+
+#: collective/twitter/profile/portlet/twprofile.py:74
+msgid "Show avatars"
+msgstr ""
+
+#: collective/twitter/profile/portlet/twprofile.py:84
+msgid "Show dates in a pretty format (ie. '4 hours ago')."
+msgstr ""
+
+#: collective/twitter/profile/portlet/twprofile.py:75
+msgid "Show people's avatars."
+msgstr ""
+
+#: collective/twitter/profile/portlet/twprofile.pt:54
+msgid "The Twitter account used to display content in this portlet appears to be invalid"
+msgstr ""
+
+#: collective/twitter/profile/portlet/twprofile.py:71
+msgid "The Twitter user you wish to get feed from (you can include or omit the initial @)."
+msgstr ""
+
+#: collective/twitter/profile/portlet/twprofile.py:62
+msgid "The header for the portlet. Leave empty for none."
+msgstr ""
+
+#: collective/twitter/profile/portlet/twprofile.py:79
+msgid "The maximum results number."
+msgstr ""
+
+#: collective/twitter/profile/portlet/twprofile.py:65
+msgid "Twitter account"
+msgstr ""
+
+#: collective/twitter/profile/portlet/twprofile.py:125
+#: collective/twitter/profile/profiles/default/portlets.xml
+msgid "Twitter profile Portlet"
+msgstr ""
+
+#: collective/twitter/profile/portlet/twprofile.py:70
+msgid "Twitter user"
+msgstr ""
+
+#: collective/twitter/profile/portlet/twprofile.py:66
+msgid "Which twitter account to use."
+msgstr ""
+

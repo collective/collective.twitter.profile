@@ -1,0 +1,9 @@
+Changelog
+=========
+
+1.0
+---
+
+- Added spanish internationalization [frapell]
+- Created a portlet that will show a profile feed from Twitter [frapell]
+- Initial release

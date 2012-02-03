@@ -1,0 +1,62 @@
+<dl class="portlet twitterProfilePortlet"
+    i18n:domain="collective.twitter.profile">
+
+    <tal:valid condition="view/isValidAccount">
+    
+        <dt class="portletHeader" tal:condition="view/getHeader">
+            <span class="portletTopLeft"></span>
+            <span tal:content="view/getHeader" />
+            <span class="portletTopRight"></span>
+        </dt>
+
+        <dd class="portletItem"
+            tal:define="results view/getSearchResults;
+                        toLocalizedTime nocall:context/@@plone/toLocalizedTime;"
+            tal:attributes="class python:'portletItem ' + ('avatar-on' if view.data.show_avatars else 'avatar-off')">
+            <div class="result-item" tal:repeat="result results">
+                <div class="tweet-image">
+                    <img class="avatar"
+                        src="#"
+                        tal:condition="view/data/show_avatars"
+                        tal:attributes="src python:result.GetUser().GetProfileImageUrl()"/>
+                </div>
+                <div class="tweet-content">
+                    <div class="tweet-row">
+                        <span class="tweet-timestamp"
+                            tal:content="python:toLocalizedTime(view.getDate(result), long_format=1)"
+                            tal:condition="not:view/data/pretty_date"></span>
+                        <span class="tweet-timestamp"
+                            tal:content="python:view.getDate(result)"
+                            tal:condition="view/data/pretty_date"></span>
+                    </div>
+                    <div class="tweet-row">
+                        <span class="tweet-user-name">
+                            <a class="tweet-screen-name"
+                            href="#"
+                            tal:define="screen_name python:result.GetUser().GetScreenName()"
+                            tal:attributes="href string:http://twitter.com/#!/${screen_name}">
+                                <span tal:content="screen_name"/>
+                            </a>
+                        </span>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-text">
+                            <span tal:replace="structure python:view.getTweet(result)"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </dd>
+
+    </tal:valid>
+
+    <tal:invalid condition="not:view/isValidAccount">
+        <p tal:condition="view/canEdit"
+           i18n:translate=""
+           i18n:domain="collective.twitter.profile">
+            The Twitter account used to display content in this portlet
+            appears to be invalid
+        </p>
+    </tal:invalid>
+
+</dl>

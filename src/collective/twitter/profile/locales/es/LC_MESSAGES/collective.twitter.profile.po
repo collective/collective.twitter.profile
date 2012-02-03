@@ -1,0 +1,89 @@
+# Franco Pellegrini <frapell@gmail.com>, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: collective.twitter.search\n"
+"POT-Creation-Date: 2012-02-03 22:12+0000\n"
+"PO-Revision-Date: 2012-02-03 19:19-0300\n"
+"Last-Translator: Franco Pellegrini\n"
+"Language-Team: Spanish <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.twitter.search\n"
+"Language: es\n"
+"X-Generator: Lokalize 1.2\n"
+
+#: collective/twitter/profile/profiles/default/portlets.xml
+msgid "A portlet that will show a profile feed from Twitter"
+msgstr "Un portlet para mostrar los tweets de un usuario en Twitter"
+
+#: collective/twitter/profile/portlet/twprofile.py:61
+msgid "Header"
+msgstr "Cabecera"
+
+#: collective/twitter/profile/portlet/twprofile.py:78
+msgid "Maximum results"
+msgstr "Resultados máximos"
+
+#: collective/twitter/profile/portlet/twprofile.py:83
+msgid "Pretty dates"
+msgstr "Fechas mejoradas"
+
+#: collective/twitter/profile/portlet/twprofile.py:74
+msgid "Show avatars"
+msgstr "Mostrar avatares"
+
+#: collective/twitter/profile/portlet/twprofile.py:84
+msgid "Show dates in a pretty format (ie. '4 hours ago')."
+msgstr "Mostrar fechas en un formato mejorado (ej. 'hace 4 horas')."
+
+#: collective/twitter/profile/portlet/twprofile.py:75
+msgid "Show people's avatars."
+msgstr "Mostrar los avatares de las personas."
+
+#: collective/twitter/profile/portlet/twprofile.pt:54
+msgid ""
+"The Twitter account used to display content in this portlet appears to be "
+"invalid"
+msgstr ""
+"La cuenta Twitter utilizada para mostrar el contenido en el portlet parece "
+"inválida"
+
+#: collective/twitter/profile/portlet/twprofile.py:71
+msgid ""
+"The Twitter user you wish to get feed from (you can include or omit the "
+"initial @)."
+msgstr ""
+"El usuario de Twitter del cual se quieren obtener los tweets (se puede "
+"incluir u omitir el @ inicial)."
+
+#: collective/twitter/profile/portlet/twprofile.py:62
+msgid "The header for the portlet. Leave empty for none."
+msgstr "La cabecera para el portlet. Dejar vacío para ninguna."
+
+#: collective/twitter/profile/portlet/twprofile.py:79
+msgid "The maximum results number."
+msgstr "El número máximo de resultados."
+
+#: collective/twitter/profile/portlet/twprofile.py:65
+msgid "Twitter account"
+msgstr "Cuenta de Twitter"
+
+#: collective/twitter/profile/portlet/twprofile.py:125
+#: collective/twitter/profile/profiles/default/portlets.xml
+msgid "Twitter profile Portlet"
+msgstr "Portlet de perfil Twitter"
+
+#: collective/twitter/profile/portlet/twprofile.py:70
+msgid "Twitter user"
+msgstr "Usuario de Twitter"
+
+#: collective/twitter/profile/portlet/twprofile.py:66
+msgid "Which twitter account to use."
+msgstr "Qué cuenta de Twitter utilizar."
+
+
