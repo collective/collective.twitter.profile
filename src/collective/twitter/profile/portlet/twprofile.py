@@ -6,7 +6,7 @@ from plone.app.portlets.portlets import base
 
 from zope import schema
 from zope.component import getUtility
-from Products.CMFCore.utils import getToolByName
+
 from zope.formlib import form
 from zope.schema.vocabulary import SimpleVocabulary
 
@@ -18,6 +18,8 @@ from collective.prettydate.interfaces import IPrettyDate
 
 from zope.security import checkPermission
 
+from collective.twitter.profile.config import PROJECTNAME
+
 from collective.twitter.profile import _
 
 from plone.memoize import ram
@@ -25,7 +27,9 @@ from time import time
 
 import DateTime
 import twitter
-import hashlib
+import logging
+
+logger = logging.getLogger(PROJECTNAME)
 
 def TwitterAccounts(context):
     registry = getUtility(IRegistry)
@@ -49,7 +53,7 @@ def cache_key_simple(func, var):
             var.data.tw_user,
             var.data.max_results)
 
-    
+
 class ITwitterProfilePortlet(IPortletDataProvider):
     """A portlet
 
@@ -101,7 +105,7 @@ class Assignment(base.Assignment):
     show_avatars = u""
     max_results = 20
     pretty_date = True
-    
+
     def __init__(self,
                  tw_account,
                  tw_user,
@@ -109,7 +113,7 @@ class Assignment(base.Assignment):
                  header=u"",
                  show_avatars=u"",
                  pretty_date=True):
-                     
+
         self.header = header
         self.tw_account = tw_account
         self.tw_user = tw_user
@@ -133,7 +137,7 @@ class Renderer(base.Renderer):
     rendered, and the implicit variable 'view' will refer to an instance
     of this class. Other methods can be added and referenced in the template.
     """
-    
+
     render = ViewPageTemplateFile('twprofile.pt')
 
 
@@ -151,18 +155,23 @@ class Renderer(base.Renderer):
         accounts = registry.get('collective.twitter.accounts', [])
 
         return self.data.tw_account in accounts
-        
+
     @ram.cache(cache_key_simple)
     def getSearchResults(self):
+        logger.info("Getting tweets.")
         registry = getUtility(IRegistry)
         accounts = registry.get('collective.twitter.accounts', [])
 
-        ploneutils = getToolByName(self.context, 'plone_utils')
-        
         account = accounts.get(self.data.tw_account, {})
         results = []
-        
+
         if account:
+            logger.info("Got a valid account.")
+            logger.info("consumer_key = %s"%account.get('consumer_key'))
+            logger.info("consumer_secret = %s"%account.get('consumer_secret'))
+            logger.info("access_token_key = %s"%account.get('oauth_token'))
+            logger.info("access_token_secret = %s"%account.get('oauth_token_secret'))
+
             tw =  twitter.Api(consumer_key = account.get('consumer_key'),
                               consumer_secret = account.get('consumer_secret'),
                               access_token_key = account.get('oauth_token'),
@@ -173,7 +182,9 @@ class Renderer(base.Renderer):
 
             try:
                 results = tw.GetUserTimeline(tw_user, count=max_results)
-            except:
+                logger.info("%s results obtained."%len(results))
+            except Exception, e:
+                logger.info("Something went wrong: %s."%e)
                 results = []
 
         return results
@@ -190,7 +201,7 @@ class Renderer(base.Renderer):
         USER_TEMPLATE ="""
         <a href="http://twitter.com/#!/%s" target="blank_">%s</a>
         """
-        
+
         full_text = result.GetText()
         split_text = full_text.split(' ')
 
@@ -205,7 +216,7 @@ class Renderer(base.Renderer):
             elif word.startswith('http'):
                 # This is a hashtag
                 split_text[index] = URL_TEMPLATE%(word,word)
-                    
+
         return "<p>%s</p>"%' '.join(split_text)
 
     def getDate(self, result):
@@ -217,7 +228,7 @@ class Renderer(base.Renderer):
             date = DateTime.DateTime(result.GetCreatedAt())
 
         return date
-        
+
 class AddForm(base.AddForm):
     """Portlet add form.
 
